@@ -1,0 +1,51 @@
+
+project:
+  tag: ribosome-example-django
+
+tag_policy: ribosome.default_tag_policy
+
+meta:
+  format: python
+
+codestyle:
+  commands:
+    - make codestyle
+
+build:
+  commands:
+    - make build
+
+test:
+  commands:
+    - make test
+
+release:
+  include:
+    - meta.py
+    - project_static/**
+  publish:
+    s3bucket: releases
+    # localdir: ..
+
+setup:
+  commands:
+    - make setup
+
+service:
+  load:
+    # will run with sudo
+    commands:
+      - $(pipenv --py) ./service.py install {service} {config}
+      - $(pipenv --py) ./service.py start {service} {config}
+  unload:
+    # will run with sudo
+    commands:
+      - $(pipenv --py) ./service.py uninstall {service} {config}
+  do:
+    commands:
+      - $(pipenv --py) ./service.py do {service} {config} {action} {args}
+
+services:
+  webapp:
+    configs:
+      - dev
