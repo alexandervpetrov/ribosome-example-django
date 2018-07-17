@@ -3,7 +3,7 @@
 # ===================================================================
 
 .pytest_cache
-./meta.py
+meta.py
 project_static
 
 
@@ -86,7 +86,7 @@ target/
 .ipynb_checkpoints
 
 # pyenv
-.python-version
+#.python-version
 
 # celery beat schedule file
 celerybeat-schedule

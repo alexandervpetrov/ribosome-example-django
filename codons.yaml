@@ -24,7 +24,7 @@ release:
     - meta.py
     - project_static/**
   publish:
-    s3bucket: releases
+    s3bucket: example-releases
     # localdir: ..
 
 setup:
