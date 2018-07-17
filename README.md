@@ -1,8 +1,10 @@
 
 # Ribosome example: Django project
 
-This repo is example of configured Ribosome release process for
-Django project.
+This repo is example of configured [Ribosome](https://github.com/alexandervpetrov/ribosome)
+release process for Django project.
+This example is complementary to [Nginx example](https://github.com/alexandervpetrov/ribosome-example-ngninx),
+they work together.
 
 
 ## Prerequisites
@@ -31,7 +33,6 @@ into 3.6.5 distribution: `pip install pipenv`.
 
 Setup runtime and build environment:
 
-    $ pyenv local 3.6.5
     $ make devsetup
 
 Setup Django:
@@ -41,3 +42,29 @@ Setup Django:
 Start main Django application:
 
     $ make run
+
+and open [http://127.0.0.1:8000](http://127.0.0.1:8000) to ensure that all is working.
+
+E.g. install configuration `dev` from service `webapp`:
+
+    $ sudo $(pipenv --py) ./service.py install webapp dev
+
+
+## Releasing, deploying, running
+
+Set the S3 bucket name in `codons.yaml` to the one you own.
+Ensure you [configured](https://boto3.readthedocs.io/en/latest/guide/quickstart.html#configuration) S3 access.
+Setup SSH daemon at localhost to test, or setup SSH access to any other host.
+
+Commit changes to your local copy of repo and tag it with a new tag.
+
+Run from environment where Ribsome installed:
+
+    $ ribosome release
+
+    $ ribosome deploy <tag> localhost
+
+    $ ribosome load <tag> webapp dev localhost
+
+To view working site you need to deploy and load
+[Nginx example](https://github.com/alexandervpetrov/ribosome-example-ngninx) project.
