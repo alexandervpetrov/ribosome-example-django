@@ -15,4 +15,4 @@ gunicorn = "*"
 
 [dev-packages]
 pycodestyle = "*"
-"ribosome.tool" = "==0.3.1"
+"ribosome.tool" = "*"
