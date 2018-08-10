@@ -31,6 +31,10 @@ setup:
   commands:
     - make setup
 
+cleanup:
+  commands:
+    - rm -rf $(pipenv --venv)
+
 service:
   load:
     # will run with sudo
