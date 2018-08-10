@@ -10,9 +10,9 @@ python_full_version = "3.6.5"
 "ruamel.yaml" = "*"
 click = "*"
 jinja2 = "*"
-Django = "==2.0.7"
+Django = "==2.0.8"
 gunicorn = "*"
 
 [dev-packages]
 pycodestyle = "*"
-"ribosome.tool" = "*"
+"ribosome.tool" = "==0.3.1"
