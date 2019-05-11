@@ -2,10 +2,10 @@
 # This project
 # ===================================================================
 
+.vscode/
 .pytest_cache
 meta.py
 project_static
-
 
 # ===================================================================
 # Defaults for Python from Github
