@@ -10,7 +10,7 @@ python_full_version = "3.6.5"
 "ruamel.yaml" = "*"
 click = "*"
 jinja2 = "*"
-Django = "==2.0.8"
+Django = "==2.2.1"
 gunicorn = "*"
 
 [dev-packages]
